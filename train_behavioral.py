@@ -3,6 +3,7 @@ import os
 import os.path as osp
 import sys
 import numpy as np
+from models import lenet, nvidia_cnn
 
 def generator(data):
     pass
