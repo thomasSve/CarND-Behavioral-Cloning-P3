@@ -23,7 +23,7 @@ def load_data(fn):
         for center_img, left_img, right_img, angle, _, _, _ in reader:
             angle = float(angle)
             images.append([center_img.strip(), left_img.strip(), right_img.strip()])
-            steering_angles.append([angle, angle+steering_offset, angle-steering_offset])
+            steering_angles.append([angle, angle+offset, angle-offset])
 
     return images, steering_angles
 
