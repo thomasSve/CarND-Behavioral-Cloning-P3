@@ -20,7 +20,7 @@ def load_data(fn):
     with open(fn) as f:
         reader = csv.reader(f)
         next(reader, None)
-        for center_img, left_img, right_img, angle, _, _ in reader:
+        for center_img, left_img, right_img, angle, _, _, _ in reader:
             angle = float(angle)
             images.append([center_img.strip(), left_img.strip(), right_img.strip()])
             steering_angles.append([angle, angle+steering_offset, angle-steering_offset])
