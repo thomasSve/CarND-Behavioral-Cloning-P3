@@ -76,10 +76,6 @@ def parse_args():
                         help='set the learning rate of model',
                         default=0.001, type=int)
 
-    if len(sys.argv) == 1:
-        parser.print_help()
-        sys.exit(1)
-
     args = parser.parse_args()
     return args
 
