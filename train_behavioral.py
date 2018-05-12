@@ -25,7 +25,7 @@ def load_data(fn):
             angle = float(angle)
             images.append([center_img.strip(), left_img.strip(), right_img.strip()])
             steering_angles.append([angle, angle+offset, angle-offset])
-
+            
     return images, steering_angles
 
 def get_image(img_data):
@@ -34,7 +34,7 @@ def get_image(img_data):
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     img = crop_img(img)
     img = resize(img)
-    return img
+    return np.array(img, dtype=np.float32)
 
 def resize(img):
     # Resize the image to fit the network input shape
@@ -58,6 +58,7 @@ def batch_generator(X_data, labels, batch_size = 32):
                 X_batch.append(get_image(X_data[indeces[i]]))
                 y_batch.append(labels[indeces[i]])
                 i = i + 1
+            print(X_batch)
             yield np.array(X_batch, dtype=np.float32), np.array(y_batch, dtype=np.float32)
 
 def train_model(model, X_train, X_validation, y_train, y_validation, batch_size = 32, epochs = 100, learning_reate = 0.001):
