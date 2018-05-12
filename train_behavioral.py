@@ -58,7 +58,7 @@ def batch_generator(X_data, labels, batch_size = 32):
                 X_batch.append(get_image(X_data[indeces[i]]))
                 y_batch.append(labels[indeces[i]])
                 i = i + 1
-            print(y_batch)
+            print(np.array(y_batch, dtype=np.float32).shape)
             yield np.array(X_batch, dtype=np.float32), np.array(y_batch, dtype=np.float32)
 
 def train_model(model, X_train, X_validation, y_train, y_validation, batch_size = 32, epochs = 100, learning_reate = 0.001):
