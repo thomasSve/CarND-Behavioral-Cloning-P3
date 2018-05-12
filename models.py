@@ -36,5 +36,6 @@ def nvidia_cnn(input_shape, keep_prob = 0.5):
     model.add(Dense(50))
     model.add(Dense(10))
     model.add(Dense(1))
+    model.compile(optimizer='adam', loss='mse')
     return model
     
