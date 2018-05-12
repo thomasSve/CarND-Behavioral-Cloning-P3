@@ -62,7 +62,7 @@ def batch_generator(X_data, labels, batch_size = 32):
 
 def train_model(model, X_train, X_validation, y_train, y_validation, batch_size = 32, epochs = 100, learning_reate = 0.001):
     early_stopping_monitor = EarlyStopping(patience=15) # if not improved over 10 epochs, stop training
-    model.fit_generator(batch_generator(X_train, y_train, batch_size = batch_size), samples_per_epoch=None, nb_epoch=epochs, verbose=1, callbacks=[early_stopping_monitor], validation_data=batch_generator(X_validation, y_validation, batch_size), nb_val_samples=1024)
+    model.fit_generator(batch_generator(X_train, y_train, batch_size = batch_size), samples_per_epoch=24000, nb_epoch=epochs, verbose=1, callbacks=[early_stopping_monitor], validation_data=batch_generator(X_validation, y_validation, batch_size), nb_val_samples=1024)
     model.save(osp.join('models', 'model_{}_{}.hdf5'))
 
 def parse_args():
