@@ -26,7 +26,6 @@ def load_data(fn):
             angle = float(angle)
             images.append([center_img.strip(), left_img.strip(), right_img.strip()])
             steering_angles.append([angle, angle+offset, angle-offset])
-            
     return images, steering_angles
 
 def get_image(img_data):
@@ -60,7 +59,6 @@ def batch_generator(X_data, labels, batch_size = 32):
                 X_batch.append(get_image(X_data[indeces[i]][camera_index]))
                 y_batch.append(labels[indeces[i]][camera_index])
                 i = i + 1
-            print(np.array(y_batch, dtype=np.float32).shape)
             yield np.array(X_batch, dtype=np.float32), np.array(y_batch, dtype=np.float32)
 
 def train_model(model, X_train, X_validation, y_train, y_validation, batch_size = 32, epochs = 100, learning_reate = 0.001):
