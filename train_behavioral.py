@@ -31,7 +31,7 @@ def load_data(fn):
 
 def get_image(img_data):
     # Read image from path
-    img = cv2.imread(osp.join('data', img_data[0]))
+    img = cv2.imread(osp.join('data', img_data))
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     img = crop_img(img)
     img = resize(img)
