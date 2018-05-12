@@ -89,5 +89,6 @@ if __name__ == '__main__':
     X, y = shuffle(X, y)
     X_train, X_validation, y_train, y_validation = train_test_split(X, y, test_size=0.1, random_state=14)
     model = nvidia_cnn(input_shape = (66, 200, 3))
+    model.summary() # print summary to debug model
     train_model(model, X_train, X_validation, y_train, y_validation)
     
