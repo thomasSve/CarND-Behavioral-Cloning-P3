@@ -7,7 +7,7 @@ from keras.layers import Convolution2D, Flatten, Dense, Lambda, Dropout, MaxPool
 
 
 
-def lenet():
+def lenet(input_shape, keep_prob = 0.5):
     model = Sequential()
     model.add(Lambda(lambda x: x/127.5-1.0, input_shape=input_shape)) # normalize data
     model.add(Convolution2D(6, 5, 5, activation = 'relu'))
