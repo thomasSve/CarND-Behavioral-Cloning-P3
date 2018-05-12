@@ -5,6 +5,7 @@ import argparse
 import numpy as np
 import cv2
 import csv
+import random
 from sklearn.utils import shuffle
 from sklearn.model_selection import train_test_split
 from keras.callbacks import EarlyStopping
