@@ -57,8 +57,8 @@ def batch_generator(X_data, labels, batch_size = 32):
             y_batch = []
             for j in range(batch_size):
                 camera_index = random.randrange(len(X_data[0]))
-                X_batch.append(get_image(X_data[indeces[i][camera_index]]))
-                y_batch.append(labels[indeces[i][camera_index]])
+                X_batch.append(get_image(X_data[indeces[i]][camera_index]))
+                y_batch.append(labels[indeces[i]][camera_index])
                 i = i + 1
             print(np.array(y_batch, dtype=np.float32).shape)
             yield np.array(X_batch, dtype=np.float32), np.array(y_batch, dtype=np.float32)
