@@ -86,7 +86,8 @@ if __name__ == '__main__':
     """
     args = parse_args()
     X, y = load_data(osp.join('data', 'driving_log.csv'))
-    X_train, X_validation, y_train, y_validation = train_test_split(X_train, y_train, test_size=0.1, random_state=14)
+    X, y = shuffle(X, y)
+    X_train, X_validation, y_train, y_validation = train_test_split(X, y, test_size=0.1, random_state=14)
     model = nvidia_cnn(input_shape = (66, 200, 3))
     train_model(model, X_train, X_validation, y_train, y_validation)
     
