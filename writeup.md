@@ -1,11 +1,22 @@
+### Introduction
+
 Project 3 in the self-driving nanodegree at Udacity consist in training a model to mimic driver behavior.
 The goal is to first drive around the track yourself to generate the training set, and later train a network that is capable of completing the same track on autonomous mode.
 
-### Creating and Preprocessing of the Training Set
-To capture good driving behavior, I first drove two laps around the track. 
-While I drive, the simulator records the steering angle with three images, one from a center camera, right camera and left camera. 
-The location of these images with its steering angle gets at the end of the recoring saved to a csv, making it easy for me later to load the images to train the network.
+### Capturing data
+As the simulator was very slow and difficult to drive a good run around the entire track, I decided to only use the sample data provided by Udacity.
+In the data examples, the simulator have recorded the steering angle with three images, one from a center camera, right camera and left camera. 
+The location of these images with its steering angle gets at the end of the recording saved to a csv, making it easy for me later to load the images to train the network.
 
+Left Camera | Center Camera | Right Camera
+:-------------------------:|:-------------------------:|:-------------------------:
+![Left Image Example](examples/left_example.jpg) | ![Center Image Example](examples/center_example.jpg) | ![Right Image Example](examples/right_example.jpg)
+
+The simulator offers two tracks, but only had example data from the first one. Which also is where the images above are fetched from.
+
+### Preprocessing the data
+
+I did some very simply preprocessing of the data, cutting out the region of interest to not show more than necessary, and scaling the image to fit the input size of the network. Also I added the normalization layer as the first layer on the model network, so the image input has values between -1 and 1.
 
 ### Model Architecture and Training Strategy
 
@@ -51,3 +62,5 @@ With this final network, I trained the model with the images from the recorded i
 I wanted to test how it ran when increasing the speed, and tried setting it to 20 mph, to see if it would still drive successfully. 
 With 20 mph it failed to complete the first turn, which might be of the simple fact that the simulator is very slow on my computer and the car might be moving too fast for the network to react.
 I then sat the speed down to lower speed again and recorded the car driving successful around the track.
+
+Video of the car driving around track 1 can be seen on [youtube](https://youtu.be/bqno6CRsZXk).
